@@ -24,39 +24,6 @@ def batch_perceptron(d, x, w, n):
         ##############
     print("completet weight : %s at iteration : %d" % (str(w), time))
 
-
-
-# def batch_perception(d, x, w, n):
-#     time = 0
-#     ls = check_error(d, x, w)
-#     while (is_error(ls, d, x, w)):
-#         w = change_weight(ls, d, x, w, n)
-#         ls = check_error(d, x, w)
-#         time += 1
-#         ##############
-#         print("iteration : %d, weight : %s" %(time, str(w)))
-#         ##############
-#     print("completet weight : %s at iteration : %d" % (str(w), time))
-
-def is_error(ls, d, x, w):
-    return len(ls) > 0
-
-def check_error(d, x, w):
-    ls_error = []
-    for i in range(len(x)):
-        sum = 0
-        for j in range(len(x[i])):
-            sum += d[i] * w[j] * x[i][j]
-        if sum <= 0 : 
-            ls_error.append(i)
-    return ls_error
-
-def change_weight(ls, d, x, w, n):
-    for i in ls:
-        for j in range(len(x[i])):
-            w[j] += d[i] * n * x[i][j]
-    return w
-
 # d = [-1, -1, -1, 1]   # AND
 d = [-1, 1, 1, 1]   # OR
 # d = [1, 1, 1, -1]   # NAND
